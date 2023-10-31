@@ -13,7 +13,7 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: 'a long, randomly-generated string stored in env',
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://stravatracker.onrender.com',
     clientID: 'MdwsAVs3qUtm8CwjJIwP1GyaSmsqbMuT',
     issuerBaseURL: 'https://dev-kkycyhndpe5shyv8.us.auth0.com'
   };
