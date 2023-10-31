@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style>
+   body{
+background-image: url('https://cdn.pixabay.com/photo/2017/02/26/11/57/mountaineer-2100050_1280.jpg');
+opacity: 0.7;   }
+</style>
+
+</head>
+<body>
+
+    <h1 class="text-info display-6 text-center bg-dark">Welcome to Dashboard</h1>
+            <div class="container-lg">
+                <div class="row">
+                        <div class="col-4">
+                            <% if (user) { %>
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="<%- user.profile %>" class="card-img-top" alt="profile" width="50px" height="180px">
+                                        <div class="card-body">
+                                            <p style="color:rgb(80, 15, 8);font-weight: bolder;font-style: italic;font-size: 30px;"><%- user.firstname %> <%- user.lastname %>
+                                            </p>
+                                              <ul class="list-group list-group-flush">
+                                                <li class="list-group-item h6">City : <%- user.city %></li>
+                                                <li class="list-group-item h6">State : <%- user.state %></li>
+                                                <li class="list-group-item h6">Country : <%- user.country %></li>
+                                                <li class="list-group-item h6">Gender : <%- user.sex %></li>
+                                                <li class="list-group-item h6">Friend : <%- user.friend || 0 %></li>
+                                                <li class="list-group-item h6">Followers : <%- user.follower || 0 %></li>
+                                              </ul>
+
+
+                                         </p>
+                                        </div>
+                                      </div>
+                                   <!-- <img src="<%= user.picture %>" alt="profilePic" width="80px" height="80px"> <%= user.name %> -->
+                                <!-- <a class="btn btn-warning btn-sm" href="/logout">logout</a> -->
+                                <% } %>
+
+
+
+
+
+
+                        </div>
+
+                        <div class="col-8">
+
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <th>Name</th>
+                                    <th>Distance</th>
+                                    <th>Moving Time</th>
+                                    <th>Avg speed</th>
+                                    <th>Max speed</th>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                </thead>
+                                <tbody>
+                                        <% if (activities.length>0) { %>
+                                            <% for (let i=0; i<activities.length;  i++) { %>
+                                             <tr>  <td> <%- activities[i].name %></td>
+                                               <td> <%- activities[i].distance %></td>
+                                               <td> <%- activities[i].moving_time %></td>
+                                               <td> <%- activities[i].average_speed %></td>
+                                               <td> <%- activities[i].max_speed %></td>
+                                               <td> <%- activities[i].location_city || 'N.A' %></td>
+
+                                               <td> <%- activities[i].location_country %></td>
+                                            </tr>
+                                                <% } %>
+                                                
+                                            <% } %>
+            
+
+                                    
+                                </tbody>
+                              </table>
+
+
+
+                          
+
+
+                        </div>
+
+                </div>
+            </div>
+  
+    
+</body>
+</html>
